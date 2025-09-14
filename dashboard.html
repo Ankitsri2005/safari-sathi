@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safar Sathi - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1>
+                        <span class="logo">🛡</span>
+                        Safar sathi
+                    </h1>
+                    <p>Smart Tourist Safety & Monitoring System</p>
+                    <p class="welcome-text">Welcome, Shambhavi Kumari (Tourist)</p>
+                </div>
+                <div class="header-right">
+                    <div class="badge badge-outline">
+                        <span>🔔</span>
+                        <span>2 Active Alerts</span>
+                    </div>
+                    <div class="badge badge-secondary">3 Tourists Tracked</div>
+                    <a href="#" class="btn logout-btn">
+                        <span>↩</span>
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-tabs">
+            <a href="#profile-section" class="nav-tab active">👤 Profile</a>
+            <a href="#panic-section" class="nav-tab">⚠ Emergency</a>
+            <a href="#map-section" class="nav-tab">🗺 Safety Map</a>
+            <a href="#dashboard-section" class="nav-tab">📊 Dashboard</a>
+            <a href="#settings-section" class="nav-tab">⚙ Settings</a>
+        </div>
+
+        <div id="profile-section" class="section active">
+            <div class="card">
+                <div class="card-header">
+                    <div class="profile-info">
+                        <div class="avatar">AJ</div>
+                        <div class="profile-details">
+                            <h3>Shambhavi Kumari </h3>
+                            <p>Assam</p>
+                            <div class="badge badge-outline">ID: TID-2025-001</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="safety-score">
+                        <div class="score-header">
+                            <span>🛡 Safety Score</span>
+                            <span class="score-value">75/100</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill warning" style="width: 75%;"></div>
+                        </div>
+                        <p class="score-note">Medium Risk - Exercise caution in planned areas</p>
+                    </div>
+
+                    <div class="grid grid-cols-2">
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <span>Current: Guwahati, Assam</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">🕒</span>
+                            <span>Last Update: 10 minutes ago</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">👥</span>
+                            <span>Group Size: 2</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📞</span>
+                            <span>Emergency: +1-555-0123</span>
+                        </div>
+                    </div>
+
+                    <div class="planned-route">
+                        <h4>Planned Route</h4>
+                        <div class="route-badges">
+                            <span class="badge badge-secondary">Guwahati</span>
+                            <span class="badge badge-secondary">Kaziranga</span>
+                            <span class="badge badge-secondary">Shillong</span>
+                            <span class="badge badge-secondary">Cherrapunji</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Safety Features Active</h3>
+                </div>
+                <div class="card-content">
+                    <div class="grid grid-cols-2">
+                        <div class="info-item">
+                            <span class="status-indicator status-active"></span>
+                            <span>Real-time Location Tracking</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="status-indicator status-active"></span>
+                            <span>Geo-fencing Alerts Enabled</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="status-indicator status-active"></span>
+                            <span>Emergency Contacts Configured</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="status-indicator status-warning"></span>
+                            <span>Family Tracking (Opt-in Required)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="panic-section" class="section">
+            <div class="card">
+                <div class="card-content panic-section">
+                    <h3>Emergency Assistance</h3>
+                    <div class="panic-button">
+                        <span class="panic-icon">⚠</span>
+                        PANIC BUTTON
+                    </div>
+                    <p class="panic-note">Hold to activate emergency alert</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Emergency Features</h3>
+                </div>
+                <div class="card-content">
+                    <div class="space-y-2">
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <span>Live location sharing enabled</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📞</span>
+                            <span>Direct line to nearest police unit</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">⏱</span>
+                            <span>5-second activation delay</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">👨‍👩‍👧‍👦</span>
+                            <span>Automatic family notification</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="map-section" class="section">
+            <div class="card">
+                <div class="card-header">
+                    <h3>👁 Safety Map View</h3>
+                </div>
+                <div class="card-content">
+                    <div class="map-container">
+                        <div class="map-placeholder">
+                            🗺 Interactive Safety Map<br>
+                            <small>Your Location: 26.1665, 91.7080</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Safety Zones</h3>
+                </div>
+                <div class="card-content">
+                    <div class="zone-item zone-safe">
+                        <div class="zone-header">
+                            <span class="zone-name">
+                                <span>🛡</span>
+                                Kamakhya Temple Area
+                            </span>
+                            <span class="badge badge-outline">500m radius</span>
+                        </div>
+                        <p class="zone-description">Well-patrolled tourist area with good mobile coverage</p>
+                    </div>
+                    
+                    <div class="zone-item zone-caution">
+                        <div class="zone-header">
+                            <span class="zone-name">
+                                <span>⚠</span>
+                                Brahmaputra Riverbank
+                            </span>
+                            <span class="badge badge-outline">300m radius</span>
+                        </div>
+                        <p class="zone-description">Exercise caution near water. Stay in designated areas</p>
+                    </div>
+                    
+                    <div class="zone-item zone-restricted">
+                        <div class="zone-header">
+                            <span class="zone-name">
+                                <span>🚫</span>
+                                Construction Zone - NH37
+                            </span>
+                            <span class="badge badge-outline">200m radius</span>
+                        </div>
+                        <p class="zone-description">Road construction in progress. Avoid this area</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="dashboard-section" class="section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Active Tourists</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⚠</div>
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Active Alerts</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Safe Tourists</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📄</div>
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">E-FIRs Generated</div>
+                </div>
+            </div>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafarSathi - Welcome & Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body, html {
+            margin: 0; padding: 0; height: 100%;
+            font-family: 'Roboto', sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            position: relative;
+            width: 900px;
+            height: 580px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 32px rgba(0, 0, 0, 0.15);
+            background: #fff;
+            display: flex;
+            flex-direction: row;
+        }
+        .welcome {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #fff;
+            z-index: 6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 40px;
+            text-align: center;
+            transition: left 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        .welcome.hide {
+            left: -100%;
+        }
+        .welcome h1 {
+            font-size: 2.7rem;
+            color: #004d4d;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 18px #3aaaaf30;
+        }
+        .welcome p {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e4251;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        .btn {
+            width: 240px;
+            padding: 14px 0;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(0, 77, 77, 0.07);
+            border: none;
+            margin: 8px 0;
+            transition: background 0.25s;
+        }
+        .btn.login {
+            background: linear-gradient(90deg,#3aaaaf 0%, #004d4d 100%);
+            color: white;
+        }
+        .btn.login:hover {
+            background: #3aaaaf;
+        }
+        .btn.guest {
+            background: linear-gradient(90deg,#fed6e3 0%, #3aaaaf 100%);
+            color: #004d4d;
+        }
+        .btn.guest:hover {
+            background: #004d4d;
+            color: white;
+        }
+
+        .panel {
+            flex: 1;
+            padding: 40px 30px 20px 30px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            transition: opacity 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+            z-index: 2;
+            position: relative;
+        }
+        .panel.left {
+            border-right: 1px solid #ddd;
+        }
+        .form-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 28px;
+            color: #222;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        label {
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+            color: #555;
+            display: block;
+        }
+        input {
+            width: 100%;
+            padding: 11px 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            outline: none;
+            background: #fff;
+        }
+        button.btn.form-btn {
+            margin-top: 14px;
+            padding: 12px 0;
+            border-radius: 6px;
+            background: #3aaaaf;
+            border: none;
+            font-weight: 600;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button.btn.form-btn:hover {
+            background: #00796b;
+        }
+
+        .back-btn-overlay {
+            position: absolute;
+            bottom: 25px;
+            font-size: 0.85rem;
+            padding: 8px 18px;
+            border-radius: 14px;
+            background: linear-gradient(90deg,#fed6e3 0%,#3aaaaf 100%);
+            color: #004d4d;
+            font-weight: 700;
+            border: none;
+            box-shadow: 0 4px 12px #004d4d22;
+            transition: background 0.3s;
+            cursor: pointer;
+            user-select: none;
+            outline: none;
+        }
+        .back-btn-overlay:hover {
+            background: #3aaaaf;
+            color: #fff;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            height: 100%;
+            background: #004d4d;
+            color: #fff;
+            border-radius: 0 15px 15px 0;
+            box-shadow: -8px 0 24px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 30px;
+            font-size: 2.4rem;
+            font-weight: 700;
+            user-select: none;
+            cursor: pointer;
+            transition: left 0.7s cubic-bezier(.68, -0.55, .27, 1.55);
+            z-index: 5;
+        }
+        .overlay-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+        .arrow-btn {
+            margin-top: 48px;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 77, 77, 0.2);
+            transition: background 0.3s;
+            user-select: none;
+        }
+        .arrow-btn:hover {
+            background: #ccebe5;
+            box-shadow: 0 2px 18px rgba(58, 170, 175, 0.5);
+        }
+        .arrow-btn svg {
+            width: 32px;
+            height: 32px;
+            fill: #004d4d;
+            display: block;
+        }
+
+        /* Slide states */
+        .container.show-create .overlay {
+            left: 0;
+            border-radius: 15px 0 0 15px;
+        }
+        .container.show-create .panel.left {
+            transform: translateX(-50%);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .container.show-create .panel.right {
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+
+        <div class="welcome" id="welcome">
+            <h1>Welcome to SafarSathi – Your Travel Safety Companion</h1>
+            <p>Travel Smart. Travel Safe. Travel Free.</p>
+            <button class="btn login" id="toLoginBtn">Login / Register</button>
+            <button class="btn guest" onclick="alert('Continue as guest clicked')">Continue as Guest</button>
+        </div>
+
+        <div class="panel left">
+            <div class="form-title">Sign In</div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="login-email">Email or mobile phone number</label>
+                    <input id="login-email" type="text" required />
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input id="login-password" type="password" required />
+                </div>
+                <button type="submit" class="btn form-btn">Login</button>
+            </form>
+        </div>
+
+        <div class="panel right">
+            <div class="form-title">Create Account</div>
+            <form>
+                <div class="form-group">
+                    <label for="create-name">Name</label>
+                    <input id="create-name" type="text" required />
+                </div>
+                <div class="form-group">
+                    <label for="create-phone">Phone Number</label>
+                    <input id="create-phone" type="tel" required />
+                </div>
+                <div class="form-group">
+                    <label for="create-email">Email</label>
+                    <input id="create-email" type="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="create-password">Password</label>
+                    <input id="create-password" type="password" required />
+                </div>
+                <button type="submit" class="btn form-btn">Create Account</button>
+            </form>
+        </div>
+
+        <div class="overlay" id="overlay">
+            <div class="overlay-content">
+                Hello SafarSathi
+                <button class="arrow-btn" id="slideArrow" aria-label="Toggle Slide">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l5.3 5.3c.39.39.39 1.02 0 1.41l-5.3 5.3c-.39.39-1.02.39-1.41 0-.38-.38-.38-1.02.01-1.41z"/>
+                    </svg>
+                </button>
+                <button class="back-btn-overlay" id="backToWelcome">Back to Welcome</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
